@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import DogPics from "./DogPics";
 
 function App() {
+  const [displayDogs, setDispayDogs] = useState(false);
+
+  function handleDisplayDogs() {
+    setDispayDogs(true);
+  }
+
   useEffect(() => {
     console.log("useEffect called");
   });
@@ -10,8 +16,8 @@ function App() {
 
   return (
     <div>
-      <button>Click Me</button>
-      <DogPics />
+      <button onClick={handleDisplayDogs}>Click Me</button>
+      {displayDogs && <DogPics />}
     </div>
   );
 }
